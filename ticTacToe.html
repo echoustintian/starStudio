@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      height: 600px;
+      width: 600px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      flex-wrap: wrap;
+    }
+    .item{
+      height: 200px;
+      width: 200px;
+      line-height: 200px;
+      text-align: center;
+      box-sizing: border-box;
+      border: 1px black solid;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+  </div>
+  <script>
+    let list = document.getElementsByClassName("item");
+  </script>
+</body>
+</html>
