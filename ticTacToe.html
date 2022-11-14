@@ -22,10 +22,12 @@
       height: 200px;
       width: 200px;
       line-height: 200px;
+      font-size: 50px;
       text-align: center;
       box-sizing: border-box;
       border: 1px black solid;
     }
+
   </style>
 </head>
 <body>
@@ -42,6 +44,60 @@
   </div>
   <script>
     let list = document.getElementsByClassName("item");
+    let arr = [0,0,0,0,0,0,0,0,0];
+    // 共有8种获胜情况
+    const win =[
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8], 
+      [0, 4, 8],
+      [6, 4, 2]
+    ];
+    let count = 0;
+    console.log(list);
+
+    // 判断是否赢
+    function isWin(){
+      let judge = false;
+      for(let i = 0;i < 8; i++){
+        if (arr[win[i][0]] == arr[win[i][1]] && arr[win[i][0]] == arr[win[i][2]] && arr[win[i][0]] != 0){
+          console.log(win[i][0]);
+          judge = true;
+        }
+        if (judge) {
+          break;
+        }
+      }
+      return judge;
+    };
+
+    // 给每个格子绑定事件
+    for(let i = 0; i < list.length; i++){
+      list[i].addEventListener("click",()=>{
+        // 判断该格子有没有被点击过
+        if(arr[i] != 0){
+          return null;
+        }
+        // 添加o和×
+        if(count % 2 == 0){
+          list[i].innerHTML = "o"
+          arr[i] = 2
+        }else{
+          list[i].innerHTML = "×"
+          arr[i] = 1
+        }
+        count++;
+        if (isWin()){
+          // dom.innerHTML 是异步添加数据，所以需给alert一定时间的延迟
+          setTimeout(()=>{
+            alert("有人赢了")
+          },100)
+        }
+      },false)
+    }
   </script>
 </body>
 </html>

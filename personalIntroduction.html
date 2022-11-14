@@ -57,6 +57,39 @@
     .main_show{
       margin-left: 260px;
     }
+
+    /* 简介展示 */
+    section{
+      height: 440px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    #info{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .main{
+      height: 240px;
+      margin: auto;
+    }
+    .head{
+      font-size: 36px;
+      font-weight: bold;
+    }
+    .info_msg{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .info_msg_container{
+      width: 280px;
+      padding: 10px;
+    }
+    .info_msg_item{
+      margin: 16px auto;
+    }
   </style>
 </head>
 <body>
@@ -74,20 +107,23 @@
   <!-- 展示区 -->
   <div class="main_show">
     <section id="info">
-      <div class="head">★个人资料</div>
-      <div class="info_msg">
-        <div class="info_msg_container">
-          <div class="info_msg_item">姓名：郭翔</div>
-          <div class="info_msg_item">性别：男</div>
-          <div class="info_msg_item">年级：大二</div>
-        </div>
-        <div class="info_msg_container">
-          <div class="info_msg_item">qq：3317755916</div>
-          <div class="info_msg_item">github：</div>
-          <div class="info_msg_item">邮箱：3317755916@qq.com</div>
-        </div>
-        <div class="info_msg_container">
-          我是一个热爱钻研计算机技术的少年，从小开始对计算机有极大的兴趣。作为计算机专业的学生，我热爱我的专业并为其投入巨大的热情和精力。希望大家能和我一同热爱计算机！
+      <div class="info_body">
+        <div class="head">★个人资料</div>
+        <div class="info_msg">
+          <div class="info_msg_container">
+            <div class="info_msg_item">姓名：郭翔</div>
+            <div class="info_msg_item">性别：男</div>
+            <div class="info_msg_item">年级：大二</div>
+            <div class="info_msg_item">专业：软件工程</div>
+          </div>
+          <div class="info_msg_container">
+            <div class="info_msg_item">qq：3317755916</div>
+            <div class="info_msg_item">github：</div>
+            <div class="info_msg_item">邮箱：3317755916@qq.com</div>
+          </div>
+          <div class="info_msg_container">
+            <div class="info_msg_item">我是一个热爱钻研计算机技术的少年，从小开始对计算机有极大的兴趣。作为计算机专业的学生，我热爱我的专业并为其投入巨大的热情和精力。希望大家能和我一同热爱计算机！</div>
+          </div>
         </div>
       </div>
     </section>
