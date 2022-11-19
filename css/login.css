@@ -1,0 +1,103 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+html{
+  background-image: url(../assets/back.jpg);
+  background-size: cover;
+}
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container{
+  width: 60%;
+  height: 480px;
+  max-width: 760px;
+  min-width: 350px;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255,255,255,.7),
+    rgba(255,255,255,.5),
+    rgba(255,255,255,.4)
+  );
+  /* 使背景模糊化 */
+  backdrop-filter: blur(10px);
+  border-radius: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  box-shadow: 2px 4px 4px 2px rgb(97, 153, 238);
+  transition: all 2.5s;
+}
+/* 鼠标放置后，向上偏移 */
+/* .container:hover{
+  margin-top: -12px;
+  margin-left: -8px;
+} */
+.container_active{
+  display: none;
+}
+.head{
+  height: 20%;
+  font-size: 25px;
+  font-weight: bolder;
+  /* 字体居中 */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.form{
+  width: 70%;
+  height: 65%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+/* .login{
+  
+}
+.register{
+
+} */
+.footer{
+  height: 10%;
+}
+input{
+  height: 40px;
+  padding: 0px 3px;
+  border-radius: 3%;
+  background-color: rgba(255, 255, 255, 0);
+}
+.input{
+  border: 0;
+  border-bottom: 1px aqua solid;
+  transition: all 0.8s ease;
+}
+.input:focus{
+  outline: none;
+  border-bottom: 3px aqua solid;
+}
+.option{
+  padding: 0px 4px;
+  color: grey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.register:hover{
+  color: rgb(87, 172, 252);
+}
+.forget:hover{
+  color: rgb(87, 172, 252);
+}
+.submit{
+  border: 0;
+  font-size: 24px;
+  color: aqua;
+  background-color: rgba(255, 255, 255, 0);
+}
