@@ -5,140 +5,104 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <style>
-    *{
-      margin: 0px;
-      padding: 0px;
-    }
-    /* 侧边栏 */
-    .nav_container{
-      width: 260px;
-      height: 100vh;
-      position: fixed;
-      left: 0;
-      top: 0;
-      bottom: 0;
-    }
-    .nav{
-      width: 100%;
-      height: 100%;
-      padding-top: 50px;
-      display: flex;
-      flex-direction: column;
-      justify-content: start;
-      background-color: rgb(37, 37, 37);
-    }
-    .profile_container{
-      width: 100%;
-      height: 100px;
-      margin-top: 80px;
-      margin-bottom: 60px;
-      text-align: center;
-    }
-    .profile{
-      width: 100px;
-      height: 100px;
-      margin: auto;
-      border-radius: 50%;
-    }
-    /* 旋转一周 */
-    .profile:hover .profile{
-      transform: rotate(1turn);
-    }
-    .list_item{
-      height: 80px;
-      line-height: 80px;
-      text-align: center;
-      font-size: 24px;
-    }
-    .list_item:hover{
-      background-color: grey;
-    }
-    .main_show{
-      margin-left: 260px;
-    }
-
-    /* 简介展示 */
-    section{
-      height: 440px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    #info{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .main{
-      height: 240px;
-      margin: auto;
-    }
-    .head{
-      font-size: 36px;
-      font-weight: bold;
-    }
-    .info_msg{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    .info_msg_container{
-      width: 280px;
-      padding: 10px;
-    }
-    .info_msg_item{
-      margin: 16px auto;
-    }
-  </style>
+  <link href="./css/introduct.css" rel="stylesheet" type="text/css"/>
+  <link href="./css/ticTac.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
   <!-- 左侧导航栏 , nav_container的主要作用是防止position和flex同时设置出现某些意料之外的样式-->
   <div class="nav_container">
     <div class="nav">
-      <div class="profile_container"><img src="./assets/profile.jpg" alt="" class="profile"></div>
+      <div class="profile_container"><img src="./assets/profile.jpg" alt="头像" class="profile"></div>
       <div class="list_item"><a href="#info">简介</a></div>
       <div class="list_item"><a href="#skills">技术栈</a></div>
-      <div class="list_item"><a href="#project">项目经历</a></div>
-      <div class="list_item"><a href="#story">个人经历</a></div>
+      <div class="list_item"><a href="#project">个人作品</a></div>
+      <div class="list_item"><a href="#ticTacToe">井字棋</a></div>
+      <!-- <div class="list_item"><a href="#ticTacToe">井字棋</a></div> -->
     </div>
   </div>
 
   <!-- 展示区 -->
   <div class="main_show">
     <section id="info">
-      <div class="info_body">
+      <div class="info_body list_body">
         <div class="head">★个人资料</div>
         <div class="info_msg">
           <div class="info_msg_container">
-            <div class="info_msg_item">姓名：郭翔</div>
-            <div class="info_msg_item">性别：男</div>
+            <div class="info_msg_item" id="name">姓名：郭翔</div>
+            <div class="info_msg_item" id="sex">性别：男</div>
             <div class="info_msg_item">年级：大二</div>
             <div class="info_msg_item">专业：软件工程</div>
           </div>
           <div class="info_msg_container">
             <div class="info_msg_item">qq：3317755916</div>
-            <div class="info_msg_item">github：</div>
+            <div class="info_msg_item" id="github">github：</div>
             <div class="info_msg_item">邮箱：3317755916@qq.com</div>
           </div>
           <div class="info_msg_container">
-            <div class="info_msg_item">我是一个热爱钻研计算机技术的少年，从小开始对计算机有极大的兴趣。作为计算机专业的学生，我热爱我的专业并为其投入巨大的热情和精力。希望大家能和我一同热爱计算机！</div>
+            <div class="info_msg_item">（个人资料内的部分数据是通过请求获取到的）</div>
           </div>
         </div>
       </div>
     </section>
 
     <section id="skills">
-
+      <div class="skills_body list_body">
+        <div class="head">★技术栈</div>
+        <ul>
+          <li class="skill_item">熟练掌握HTML，css，js以及vue开发框架</li>
+          <li class="skill_item">能够熟练使用微信小程序开发，uniapp跨端开发</li>
+          <li class="skill_item">熟悉promise等es6规范，熟悉Git的使用，能够配合团队协同开发</li>
+          <li class="skill_item">能使用node.js及express进行简单开发</li>
+          <li class="skill_item">了解react开发框架以及webpack的基本使用</li>
+        </ul>
+      </div>
     </section>
 
     <section id="project">
-
+      <div class="project_body list_body">
+        <div class="head">★个人作品</div>
+        <div class="project_list">
+          <div class="project_item">
+            <div class="img_container"><img src="./assets/wumeiyuan.png" alt="" class="img"></div>
+            <div class="project_name">乌梅园智慧农业管理系统</div>
+          </div>
+          <div class="project_item">
+            <div class="img_container"><img src="./assets/wumeiyuan_largescreen.png" alt="" class="img"></div>
+            <div class="project_name">乌梅园智慧农业管理系统</div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="story">
-
+    <section id="ticTacToe">
+      <div class="container">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+      </div>
     </section>
   </div>
+
+  <script src="./request.js"></script>
+  <script src="./ticTac.js"></script>
+  <script>
+    RequestFuction.get("http://101.35.193.46:3000",function (){
+      console.log(this)
+      console.log(JSON.parse(this.response));
+      let msg = JSON.parse(this.response)
+      const name = document.getElementById("name")
+      name.innerHTML = "姓名：" + msg.name
+      const sex = document.getElementById("sex")
+      sex.innerHTML = "性别：" + msg.sex
+      const github = document.getElementById("github")
+      github.innerHTML = "GitHub：" + msg.github
+    })
+  </script>
 </body>
 </html>
