@@ -5,110 +5,85 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login And Register</title>
-  <style>
-    *{
-      margin: 0px;
-      padding: 0px;
-    }
-    html{
-      background-image: url(./assets/back.jpg);
-      background-size: cover;
-    }
-    body{
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .container{
-      width: 60%;
-      height: 480px;
-      max-width: 760px;
-      min-width: 350px;
-      background: linear-gradient(
-        to right bottom,
-        rgba(255,255,255,.7),
-        rgba(255,255,255,.5),
-        rgba(255,255,255,.4)
-      );
-      /* 使背景模糊化 */
-      backdrop-filter: blur(10px);
-      border-radius: 3%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      box-shadow: 2px 4px 4px 2px rgb(97, 153, 238);
-      transition: all 1.5s;
-    }
-    /* 鼠标放置后，向上偏移 */
-    .container:hover{
-      margin-top: -12px;
-      margin-left: -8px;
-    }
-    .head{
-      height: 20%;
-      font-size: 25px;
-      font-weight: bolder;
-      /* 字体居中 */
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .login{
-      width: 70%;
-      height: 65%;
-      margin: auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-    }
-    .footer{
-      height: 10%;
-    }
-    input{
-      height: 40px;
-      padding: 0px 3px;
-      border-radius: 3%;
-      background-color: rgba(255, 255, 255, 0);
-    }
-    .input{
-      border: 0;
-      border-bottom: 1px aqua solid;
-    }
-    .input:focus{
-      outline: none;
-      border-bottom: 3px aqua solid;
-    }
-    .option{
-      padding: 0px 4px;
-      color: grey;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    .submit{
-      border: 0;
-      font-size: 24px;
-      color: aqua;
-    }
-  </style>
+  <link href="./css/login.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
   <div class="container">
     <div class="head">登陆</div>
-    <form action="" class="login">
-      <input type="text" placeholder="请输入账号" class="input">
-      <input type="password" placeholder="请输入密码" class="input">
+    <form action="" class="login form" name="login_form">
+      <input type="text" placeholder="请输入账号" class="input" name="username">
+      <input type="password" placeholder="请输入密码" class="input" name="password">
       <div class="option">
         <div class="forget">忘记密码</div>
         <div class="register">注册</div>
       </div>
-      <input type="submit" class="submit" value="Go">
+      <!-- <input type="submit" class="submit" name="Go"> -->
+      
     </form>
+    <button class="submit" id="login">Go</button>
     <div class="footer">
     </div>
   </div>
 
+  <div class="container container_active">
+    <div class="head">注册</div>
+    <form action="" class="register form"  name="register_form">
+      <input type="text" placeholder="请输入账号" class="input" name="username">
+      <input type="password" placeholder="请输入密码" class="input" name="password">
+      <input type="password" placeholder="请确认密码" class="input" name="re_password">
+      <!-- <input type="submit" class="submit" value="Submit"> -->
+      
+    </form>
+    <button class="submit" id="register">Submit</button>
+    <div class="footer">
+    </div>
+  </div>
+  <script>
+    // 登入盒子
+    const loginContainer = document.getElementsByClassName("container")[0];
+    // 注册盒子
+    const registerContainer = document.getElementsByClassName("container")[1];
+    // 注册
+    const registerBtn = document.getElementsByClassName("register")[0];
+    registerBtn.addEventListener("click",()=>{
+      loginContainer.style.opacity = 0
+      loginContainer.style.width = "0px"
+      loginContainer.style.height = "0px"
+      setTimeout(()=>{
+        loginContainer.setAttribute("class","container_active");
+        registerContainer.setAttribute("class","container");
+      },2500)
+    })
+    // 注册提交
+    console.log();
+    const registerSubmit = document.getElementById("register");
+    registerSubmit.addEventListener("click",()=>{
+      // 注册判断
+      if (register_form.re_password.value != register_form.password.value){
+        alert("两次密码不一致")
+      }else if(register_form.password.value.length < 6){
+        alert("密码长度过短")
+      }else if(localStorage.getItem(register_form.username.value) != null){
+        alert("用户名已存在")
+      }else{
+        localStorage.setItem(register_form.username.value,register_form.password.value)
+        confirm("注册成功")
+        location.reload()
+      }
+    })
+    // 登入提交
+    const loginSubmit = document.getElementById("login");
+    loginSubmit.addEventListener("click",()=>{
+      if (localStorage.getItem(login_form.username.value) == null){
+        alert("用户名不存在")
+      }else if(localStorage.getItem(login_form.username.value) != login_form.password.value){
+        alert("密码错误")
+      }else{
+        location.replace("./personalIntroduction.html")
+        
+      }
+    })
+
+  </script>
 </body>
 </html>
