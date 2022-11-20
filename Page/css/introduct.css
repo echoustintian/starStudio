@@ -75,7 +75,7 @@ section{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url(./assets/background1.jpg);
+  background-image: url(../assets/background1.jpg);
 }
 .main{
   height: 240px;
